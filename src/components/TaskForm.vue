@@ -19,7 +19,9 @@ const handleSubmit = () => {
 </script>
 <template>
     <form action="" class="task-form" @submit.prevent="handleSubmit">
-        <input type="text" placeholder="I need to .." v-model="newTask">
+        <label for=""> Title</label>
+        <input type="text" placeholder="Title here ..." v-model="newTask">
+        <label for="" style="margin-top:16px">Description</label>
         <textarea name="" id="" cols="30" rows="10" v-model="newTaskDescription" />
         <button><i class="material-icons">add</i> Add</button>
     </form>
@@ -32,15 +34,20 @@ const handleSubmit = () => {
 
     max-width: 500px;
     margin: 24px auto;
-    padding-bottom: 24px;
-    border-bottom: 1px solid #545353;
+    text-align: left;
+
 
     button,
     textarea,
+
     input {
         width: 100%;
         padding: 4px 8px;
         margin-top: 8px;
+    }
+
+    label {
+        display: inline-block;
     }
 
     button {
