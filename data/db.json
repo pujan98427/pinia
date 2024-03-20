@@ -1,0 +1,94 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "title": "A flashing red traffic light signifies that a driver should do what?",
+      "description": "stop",
+      "isFav": false
+    },
+    {
+      "id": 2,
+      "title": "A knish is traditionally stuffed with what filling?",
+      "description": "potato",
+      "isFav": false
+    },
+    {
+      "id": 3,
+      "title": "A portrait that comically exaggerates a person's physical traits is called a what?",
+      "description": "caricature",
+      "isFav": false
+    },
+    {
+      "id": 4,
+      "title": "A second-year college student is usually called a what?",
+      "description": "senior",
+      "isFav": false
+    },
+    {
+      "id": 5,
+      "title": "A student who earns a J.D. can begin his or her career as a what?",
+      "description": "lawyer",
+      "isFav": false
+    },
+    {
+      "id": 6,
+      "title": "According to a popular slogan, what state should people not 'mess with'?",
+      "description": "Texas",
+      "isFav": false
+    },
+    {
+      "id": 7,
+      "title": "According to a Yale University study, what smell is the most recognizable to American adults?",
+      "description": "coffee",
+      "isFav": false
+    },
+    {
+      "title": "JSON stands for",
+      "description": "JavaScript Object Notation",
+      "isFav": false,
+      "id": 519
+    },
+    {
+      "title": "JSON is a _____ for storing and transporting data.",
+      "description": "text format",
+      "isFav": false,
+      "id": 172
+    },
+    {
+      "title": "Who is the creator of JSON?",
+      "description": "Douglas Crockford",
+      "isFav": false,
+      "id": 207
+    },
+    {
+      "title": " In the JSON syntax, data is separated by _____.",
+      "description": "Commas",
+      "isFav": false,
+      "id": 588
+    },
+    {
+      "title": "According to the proverb, necessity is the mother of what?",
+      "description": "Invention",
+      "isFav": false,
+      "id": 713
+    },
+    {
+      "title": "What is the scientific name of a butterfly?",
+      "description": "Formicidae",
+      "isFav": false,
+      "id": 782
+    },
+    {
+      "title": "What is the capital of Spain?",
+      "description": "Buenos Aires",
+      "isFav": false,
+      "id": 744
+    },
+    {
+      "title": "How tall is Mount Everest?",
+      "description": "8,847m",
+      "isFav": false,
+      "id": 892
+    }
+  ]
+}

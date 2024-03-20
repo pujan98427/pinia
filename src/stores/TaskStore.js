@@ -2,26 +2,8 @@ import { defineStore } from "pinia";
 
 export const useTaskStore = defineStore('taskStore', {
     state: () => ({
-        tasks: [
-            {
-                id: 1,
-                title: 'Task 1',
-                description: 'Description 1',
-                isFav: false
-            },
-            {
-                id: 2,
-                title: 'Task 2',
-                description: 'Description 2',
-                isFav: true
-            },
-            {
-                id: 3,
-                title: 'Task 3',
-                description: 'Description 3',
-                isFav: true
-            }
-        ],
+        tasks: [],
+        Loading: false
     }),
     getters: {
         favs() {
@@ -38,17 +20,54 @@ export const useTaskStore = defineStore('taskStore', {
 
     },
     actions: {
-        addTask(task) {
-            this.tasks.push(task)
+        async getTasks() {
+            // const res = await axios.get('http://localhost:3000/tasks');
+            this.Loading = true
+            const res = await fetch('http://localhost:3000/tasks')
+            const data = await res.json()
+            this.tasks = data
+            this.Loading = false
         },
-        deleteTask(id) {
+        async addTask(task) {
+            this.tasks.push(task)
+
+            const res = await fetch('http://localhost:3000/tasks', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(task)
+            })
+            if (res.error) {
+                console.log(res.error)
+            }
+        },
+        async deleteTask(id) {
             this.tasks = this.tasks.filter(t => {
                 return t.id !== id
             });
+            const res = await fetch('http://localhost:3000/tasks' + id, {
+                method: 'DELETE',
+
+            })
+            if (res.error) {
+                console.log(res.error)
+            }
         },
-        toggleFavTask(id) {
+        async toggleFavTask(id) {
             const task = this.tasks.find(t => t.id === id)
             task.isFav = !task.isFav
+
+            const res = await fetch('http://localhost:3000/tasks' + id, {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify({ isFav: task.isFav })
+            })
+            if (res.error) {
+                console.log(res.error)
+            }
         }
     }
 })

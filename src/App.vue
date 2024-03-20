@@ -1,10 +1,13 @@
 <script setup>
 import { useTaskStore } from './stores/TaskStore.js';
-const taskStore = useTaskStore();
 import TaskDetails from './components/TaskDetails.vue'
 import { ref } from 'vue';
 import TaskForm from './components/TaskForm.vue'
 
+
+const taskStore = useTaskStore();
+// fetch json
+taskStore.getTasks();
 const toggleData = ref('all')
 function toggleHandler(meta) {
   toggleData.value = meta
@@ -37,23 +40,28 @@ function toggleHandler(meta) {
 
           </div>
         </div>
-        <div class="task-wrapper">
-          <div class="" v-if="toggleData === 'all'">
-            <p>you have {{ taskStore.totalCount }} tasks</p>
-            <div class="" v-for="task in taskStore.tasks">
-              <TaskDetails :task="task" />
-            </div>
-
-          </div>
-          <div class="" v-if="toggleData === 'fav'">
-            <p>you have {{ taskStore.favCount }} tasks</p>
-            <div class="" v-for="task in taskStore.favs">
-              <TaskDetails :task="task" />
-            </div>
-
-          </div>
-
+        <div class="" v-if="taskStore.Loading">
+          <p>is Loading ....</p>
         </div>
+        <template v-else>
+          <div class="task-wrapper">
+            <div class="" v-if="toggleData === 'all'">
+              <p>you have {{ taskStore.totalCount }} tasks</p>
+              <div class="" v-for="task in taskStore.tasks">
+                <TaskDetails :task="task" />
+              </div>
+
+            </div>
+            <div class="" v-if="toggleData === 'fav'">
+              <p>you have {{ taskStore.favCount }} tasks</p>
+              <div class="" v-for="task in taskStore.favs">
+                <TaskDetails :task="task" />
+              </div>
+
+            </div>
+
+          </div>
+        </template>
 
       </div>
     </section>
