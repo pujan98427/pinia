@@ -56,7 +56,7 @@ export const useTaskStore = defineStore('taskStore', {
         },
         async toggleFavTask(id) {
             const task = this.tasks.find(t => t.id === id)
-            task.isFav = !task.isFav
+
 
             const res = await fetch('http://localhost:3000/tasks' + id, {
                 method: 'POST',
